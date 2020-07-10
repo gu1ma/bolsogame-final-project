@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bolsonaro : MonoBehaviour
 {
+    public Text healthDisplay;
+
     public float speed;
     private float input;
 
@@ -14,6 +17,7 @@ public class Bolsonaro : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        healthDisplay.text = health.ToString();
     }
 
     private void Update() {
@@ -36,8 +40,12 @@ public class Bolsonaro : MonoBehaviour
 
     public void TakeDamage(int damageAmount) {
         health -= damageAmount;
-
         if(health <= 0) {
+            health = 0;
+        }
+        healthDisplay.text = health.ToString();
+
+        if(health == 0) {
             // Bolso died
             Destroy(gameObject);
         }
