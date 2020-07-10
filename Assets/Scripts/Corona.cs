@@ -12,6 +12,8 @@ public class Corona : MonoBehaviour
     float speed;
     Bolsonaro bolsoScript;
 
+    public GameObject explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +30,12 @@ public class Corona : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coronaObj) {
         if(coronaObj.tag == "Player") {
             bolsoScript.TakeDamage(damage);
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 
         if(coronaObj.tag == "Ground") {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
