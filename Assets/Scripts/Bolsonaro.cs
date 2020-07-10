@@ -7,6 +7,8 @@ public class Bolsonaro : MonoBehaviour
     public float speed;
     private float input;
 
+    public int health;
+
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -30,5 +32,14 @@ public class Bolsonaro : MonoBehaviour
         
         //Move the player
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
+    }
+
+    public void TakeDamage(int damageAmount) {
+        health -= damageAmount;
+
+        if(health <= 0) {
+            // Bolso died
+            Destroy(gameObject);
+        }
     }
 }
