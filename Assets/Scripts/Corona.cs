@@ -28,6 +28,11 @@ public class Corona : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coronaObj) {
         if(coronaObj.tag == "Player") {
             bolsoScript.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+
+        if(coronaObj.tag == "Ground") {
+            Destroy(gameObject);
         }
     }
 }
