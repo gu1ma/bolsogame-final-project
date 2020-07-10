@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Bolsonaro : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class Bolsonaro : MonoBehaviour
         if(health == 0) {
             // Bolso died
             Destroy(gameObject);
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
